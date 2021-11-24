@@ -1,0 +1,34 @@
+import java.io.*;
+import java.util.*;
+
+public class Main {
+
+  public static void permutations(int currentItem, int n, int k ,int[] boxes)
+  {
+        if(currentItem == k)
+        {
+            for(int val : boxes)
+            System.out.print(val);
+            System.out.println();
+            return;
+        }
+        
+        for(int i=0; i<n; i++)
+        {
+            if(boxes[i] == 0)
+            {
+                boxes[i] = currentItem + 1;
+                permutations(currentItem + 1, n, k , boxes);
+                boxes[i] = 0;
+            }
+        }
+  }
+
+  public static void main(String[] args) throws Exception {
+    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    int n = Integer.parseInt(br.readLine());
+    int k = Integer.parseInt(br.readLine());
+    permutations(0,n,k,new int[n]);
+  }
+
+}
