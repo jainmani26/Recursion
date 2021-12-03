@@ -1,0 +1,57 @@
+import java.io.*;
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) throws Exception 
+    {
+        Scanner scn = new Scanner(System.in);
+        int input = scn.nextInt();
+        String output = "";
+        printStairPaths(input,output);
+    }
+
+    // public static void printStairPaths(int n, String path) 
+    // {
+    //     //-ve base case
+    //     if(n < 0)
+    //     {
+    //         return;
+    //     }
+    //     if(n == 0)
+    //     {
+    //         System.out.println(path);
+    //         return;
+    //     }
+        
+    //     printStairPaths(n-1, path+"1");
+    //     printStairPaths(n-2, path+"2");
+    //     printStairPaths(n-3, path+"3");
+        
+    // }
+    
+    public static void printStairPaths(int input , String output)
+    {
+        if( input == 0)
+        {
+            System.out.println(output);
+            return;
+        }
+        
+        if(input - 1 >= 0)
+        {
+            printStairPaths(input - 1, output + 1); //add 1 to all the paths
+        }
+        
+        if(input - 2 >= 0)
+        {
+            printStairPaths(input - 2, output + 2); //add 2 to all the paths 
+        }
+        
+        if(input - 3 >= 0)
+        {
+            printStairPaths(input - 3, output + 3); //add 3 to all the paths
+        }
+    }
+
+}
